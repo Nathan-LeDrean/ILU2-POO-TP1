@@ -59,6 +59,11 @@ public class Village {
 		return chaine.toString();
 	}
 	
+	public String installerVendeur(Gaulois vendeur, String produit,int nbProduit) {
+		StringBuilder chaine = new StringBuilder()
+				
+	}
+	
 	private static class Marche {
 		private Etal[] etals;
 		
