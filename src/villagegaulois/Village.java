@@ -44,25 +44,21 @@ public class Village {
         return null;
     }
 
-    public String afficherVillageois() throws VillageSansChefException {
-        if (chef == null) {
-            throw new VillageSansChefException("Le village ne possède pas de chef !");
-        }
-        StringBuilder chaine = new StringBuilder();
-        if (nbVillageois < 1) {
-            chaine.append("Il n'y a encore aucun habitant au village du chef ")
-                  .append(chef.getNom()).append(".\n");
-        } else {
-            chaine.append("Au village du chef ").append(chef.getNom())
-                  .append(" vivent les légendaires gaulois :\n");
-            for (int i = 0; i < nbVillageois; i++) {
-                chaine.append("- ").append(villageois[i].getNom()).append("\n");
-            }
-        }
-        return chaine.toString();
-    }
-
-    // --- Méthodes du Village interagissant avec Marche ---
+	public String afficherVillageois() throws VillageSansChefException {
+		if (chef == null) {
+		    throw new VillageSansChefException("Le village n'a pas de chef !");
+		}
+		StringBuilder chaine = new StringBuilder();
+		if (nbVillageois < 1) {
+			chaine.append("Il n'y a encore aucun habitant au village du chef " + chef.getNom() + ".\n");
+		} else {
+			chaine.append("Au village du chef " + chef.getNom() + " vivent les légendaires gaulois :\n");
+			for (int i = 0; i < nbVillageois; i++) {
+				chaine.append("- " + villageois[i].getNom() + "\n");
+			}
+		}
+		return chaine.toString();
+	}
 
     public String installerVendeur(Gaulois vendeur, String produit, int nbProduit) {
         StringBuilder chaine = new StringBuilder();
@@ -119,8 +115,6 @@ public class Village {
         return chaine.toString();
     }
 
-    // --- Classe interne Marche ---
-    // 'private' car réservée à Village, et 'static' car elle n'accède pas aux champs d'instance de Village.
     private static class Marche {
         private Etal[] etals;
 
